@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    color: white;
+}
+
+body{
+    background-image: url('./assets/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    padding: 5rem;
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-container{
+    display: flex;   
+}
+
+.info-left, .info-right{
+    padding: 2rem;
+}
+
+.weather-info{
+    margin-bottom: 2rem;
+}

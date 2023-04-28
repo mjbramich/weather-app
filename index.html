@@ -5,23 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Australian Weather</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="normalise.css">
     <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
 </head>
 <body>
     <main class="container">
-
         <div class="top">
-            <div class="left">
+            <h1>City</h1>
+            <p>Image</p>
+            <div class="info-container">
+                <div class="info-left">
+                    <div class="weather-info">
+                        <p class="date">24/07/2023</p>
+                        <p class="forecast">Cloudy</p>
+                        <p class="tempeature">17</p>
+                    </div>
+                </div>
 
-            </div>
-
-            <div class="right">
-
-            </div>
+                <div class="info-right">
+                    <div class="weather-info">
+                        <p class="city">Feels Like</p>
+                        <p class="date">Humidity</p>
+                        <p class="forecast">Chance of rain</p>
+                        <p class="tempeature">Wind speed</p>
+                    </div>
+                </div>
+        </div>
+            <form>
+                <input type="text" placeholder="Search location...">
+                    <button type="submit" class=".searchBtn"> <span class="material-symbols-outlined">
+                            search
+                        </span></button>
+            </form>
+            
         </div>
 
-        <div class="forecast">
+        <div class="weekly-forecast">
             <div class="buttons">
 
             </div>
