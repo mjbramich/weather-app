@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Australian Weather</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,0,200" />
     <link rel="stylesheet" href="normalise.css">
     <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
@@ -13,36 +14,51 @@
 <body>
     <main class="container">
         <div class="top">
-            <h1>City</h1>
-            <p>Image</p>
-            <div class="info-container">
-                <div class="info-left">
-                    <div class="weather-info">
-                        <p class="date">24/07/2023</p>
-                        <p class="forecast">Cloudy</p>
-                        <p class="tempeature">17</p>
+            <div class="weather-info">
+                <div class="card-left">
+                    <h3 class="forecast">Clear Sky</h3>
+                    <h1 class="city">City</h1>
+                    
+                    <div class="card-bottom">
+                        <div class="info-left">
+                            <h2 class="temp">25<span>&#8451</span></h2>
+                        </div>
+                        <div class="info-right">
+                            <span class="date">24/07/2023</span>
+                            <span class="forecast">Cloudy</span>
+                            <span class="tempeature">17</span>
+                        </div>
                     </div>
+               
+        
+                   
+        
                 </div>
 
-                <div class="info-right">
-                    <div class="weather-info">
-                        <p class="city">Feels Like</p>
-                        <p class="date">Humidity</p>
-                        <p class="forecast">Chance of rain</p>
-                        <p class="tempeature">Wind speed</p>
-                    </div>
+                <div class="card-right">
+                    <span class="display-img"><span class="material-symbols-outlined">
+                        sunny
+                        </span></span>
                 </div>
-        </div>
+        
+            </div>
+
             <form>
                 <input type="text" placeholder="Search location...">
-                    <button type="submit" class=".searchBtn"> <span class="material-symbols-outlined">
-                            search
-                        </span></button>
-            </form>
-            
-        </div>
+                <button type="button" class="searchBtn"> <span class="material-symbols-outlined">
 
-        <div class="weekly-forecast">
+                    </span></button>
+            </form>
+    
+
+        </div>
+    
+     
+        
+            
+        
+
+        <!-- <div class="weekly-forecast">
             <div class="buttons">
 
             </div>
@@ -56,7 +72,7 @@
                 <div class="day"></div>
                 <div class="day"></div>
             </div>
-        </div>
+        
     </main>
 </body>
 </html>
