@@ -4,24 +4,53 @@ const displayCity = document.querySelector('.city')
 const displayForecast = document.querySelector('.forecast')
 const displayTemp = document.querySelector('.temp')
 const displayIcon = document.querySelector('.display-icon')
-const displayTime = document.querySelector('.time')
+const displayTime = document.querySelector('.date')
 const displayHumidity = document.querySelector('.humidity')
 const displayRain = document.querySelector('.chance-rain')
 const displayWind = document.querySelector('.wind-speed')
+const displayError = document.querySelector('.req-error')
+
+navigator.geolocation
+
+//on page load call api
+window.addEventListener('load', function(){
+    searchBtn.click()
+})
+
 
 searchBtn.addEventListener('click', fetchWeather)
 
-async function fetchWeather() {
-    const city = input.value.toLowerCase();
-    console.log(city);
+// allow users to submit entry with enter
+input.addEventListener('keypress', function(event){
+    if(event.key === 'Enter'){
+        searchBtn.click()
+    }
+} )
+
+
+async function fetchWeather(){
+    
+    if(!input.value){
+        city = 'melbourne'
+    }else{
+        city = input.value.toLowerCase();
+    }
+    
     const URL = `http://api.weatherapi.com/v1/forecast.json?key=3767319680b2479f8c665244232804&q=${city}&days=1&aqi=no&alerts=no`;
 
     try {
         const response = await fetch(URL);
         const data = await response.json();
+
         if (!response.ok) {
+            displayError.style.display = 'block'
+            displayError.textContent = 'City not found'
             throw new Error('Network request not ok');
+        }else{
+            displayError.textContent = ''
         }
+        
+
         const city = data.location.name
         const temperature = data.current.temp_c
         const forecast = data.current.condition.text
@@ -33,6 +62,7 @@ async function fetchWeather() {
 
         updateWeather(city, temperature, forecast, time, humidity, rain, wind)
         updateIcon(forecast)
+        console.log(time)
     } catch (err) {
         console.log(err);
     }

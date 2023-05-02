@@ -6,6 +6,7 @@
 }
 
 body{
+    min-width: 600px;
     background: 
     /* transparent red overlay */
     linear-gradient(to top, rgba(255,0,0,0.20), rgba(255,0,0,0.20)), 
@@ -28,7 +29,7 @@ body{
     gap: 2rem;
     align-items: center;
     padding-top: 10rem;
-    margin: 0 20rem;
+    margin: 0 auto;
 }
 
 .weather-info{
@@ -52,7 +53,14 @@ body{
 .card-left .city{
     margin: 0;
     font-size: 5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-left .date{
+    font-size: 1.5rem;
+    color: white;
+    opacity: 1;
+    margin-bottom: 0.5rem;
 }
 
 .card-right{
@@ -90,7 +98,14 @@ body{
 
 /* ---- FORM STYLES ---- */
 
-.search{
+.form-error-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.form-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,7 +114,7 @@ body{
     border-bottom: 2px solid white;
 }
 
-.search input {
+.form-container input {
     background: transparent;
     border: none;
     height: 100%;
@@ -117,7 +132,6 @@ input::placeholder{
 .searchBtn{
     border: none;
     background: transparent;
-    font-size: 1.25rem;
     cursor: pointer;
 }
 
@@ -125,4 +139,119 @@ input::placeholder{
     font-size: 2rem;
 }
 
+.req-error{
+    font-weight: 600;
+    font-size: 1.25rem;
+    display: none;
+}
 
+
+/* ----- Tablets & small laptops ----- */
+
+@media (max-width: 1200px) {
+    body{
+        background-size: cover;
+    }
+
+    
+    .container{
+        padding: 10rem 0;
+    }
+
+    .top{
+        margin: 0;
+        padding: 0;
+        gap: 0;
+    }
+
+    .card-left{
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        
+    }
+
+    .card-right{
+        justify-content: center;
+    }
+
+    .weather-info{
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+}
+
+
+
+
+/* ----- Mobile Devices ----- */
+
+@media  (max-width: 600px) {
+
+    body{
+        background-size:cover;
+        min-width: 300px;
+    }
+
+    .container{
+        padding: 10rem 0;
+        
+    }
+
+    .top{
+        margin: 0;
+        padding: 0;
+        gap: 0;
+    }
+
+    .card-left{
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-right{
+        justify-content: center;
+    }
+
+    .card-right span{
+        font-size: 6rem;
+    }
+
+    .weather-info{
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    /* FONT SIZES */
+    /* DEFAULT = 1rem */
+    * {
+        font-size: 1rem;
+    }
+
+    .card-left .forecast{
+        font-size: 1.75rem;
+    }
+
+    .card-left .city{
+        font-size: 3.5rem;
+    }
+
+    .card-left .date{
+        font-size: 1.25rem;
+    }
+
+    .info-left .temp{
+        font-size: 3rem;
+    }
+
+    .form-container input {
+        font-size: 1rem;
+    }
+
+    .searchBtn span {
+        font-size: 1.5rem;
+    }
+
+}
