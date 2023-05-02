@@ -4,19 +4,18 @@ const displayCity = document.querySelector('.city')
 const displayForecast = document.querySelector('.forecast')
 const displayTemp = document.querySelector('.temp')
 const displayIcon = document.querySelector('.display-icon')
-const displayTime = document.querySelector('.date')
+const displayDate = document.querySelector('.date')
 const displayHumidity = document.querySelector('.humidity')
 const displayRain = document.querySelector('.chance-rain')
 const displayWind = document.querySelector('.wind-speed')
 const displayError = document.querySelector('.req-error')
 
-navigator.geolocation
+
 
 //on page load call api
 window.addEventListener('load', function(){
     searchBtn.click()
 })
-
 
 searchBtn.addEventListener('click', fetchWeather)
 
@@ -49,34 +48,33 @@ async function fetchWeather(){
         }else{
             displayError.textContent = ''
         }
-        
 
         const city = data.location.name
         const temperature = data.current.temp_c
         const forecast = data.current.condition.text
-        const time = data.location.localtime
+        const date = data.location.localtime
         const humidity = data.current.humidity 
         const rain = data.forecast.forecastday[0].day.daily_chance_of_rain
         const wind = data.current.gust_kph
 
 
-        updateWeather(city, temperature, forecast, time, humidity, rain, wind)
+        updateWeather(city, temperature, forecast, date, humidity, rain, wind)
         updateIcon(forecast)
-        console.log(time)
     } catch (err) {
         console.log(err);
     }
 }
 
-const updateWeather = (city, temp, fc, time, humid, rain, wind) => {
+const updateWeather = (city, temp, fc, date, humid, rain, wind) => {
     displayCity.textContent = city
     displayTemp.innerHTML = temp + '<span>&#8451;</span>' // adding celcius symbol to end of temp
     displayForecast.textContent = fc
-    displayTime.textContent = time
+    displayDate.textContent = date
     displayHumidity.textContent = `Humidity: ${humid}%`
     displayRain.innerHTML = `Chance of rain: ${rain}%`
-    displayWind.innerHTML = `Wind Speed: ${wind} km/h`
+    displayWind.innerHTML = `Wind: ${wind} km/h`
 }
+
 
 const updateIcon = (conditon) => {
     conditon = conditon.toLowerCase()
