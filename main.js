@@ -39,7 +39,7 @@ async function fetchWeather(){
     const URL = `https://api.weatherapi.com/v1/forecast.json?key=697663694b084055a9455117230505&q=${city}&days=1&aqi=no&alerts=no`
 
     try {
-        const response = await fetch(URL, {mode: 'cors'});
+        const response = await fetch(URL);
         const data = await response.json();
 
         if (!response.ok) {
