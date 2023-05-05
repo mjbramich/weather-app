@@ -12,6 +12,7 @@ const displayError = document.querySelector('.req-error')
 
 
 
+
 //on page load call api
 window.addEventListener('load', function(){
     searchBtn.click()
@@ -34,11 +35,11 @@ async function fetchWeather(){
     }else{
         city = input.value.toLowerCase();
     }
-    
-    const URL = `http://api.weatherapi.com/v1/forecast.json?key=3767319680b2479f8c665244232804&q=${city}&days=1&aqi=no&alerts=no`;
+
+    const URL = `https://api.weatherapi.com/v1/forecast.json?key=697663694b084055a9455117230505&q=${city}&days=1&aqi=no&alerts=no`
 
     try {
-        const response = await fetch(URL);
+        const response = await fetch(URL, {mode: 'cors'});
         const data = await response.json();
 
         if (!response.ok) {
@@ -48,16 +49,14 @@ async function fetchWeather(){
         }else{
             displayError.textContent = ''
         }
-
+        
         const city = data.location.name
         const temperature = data.current.temp_c
         const forecast = data.current.condition.text
         const date = data.location.localtime
         const humidity = data.current.humidity 
         const rain = data.forecast.forecastday[0].day.daily_chance_of_rain
-        const wind = data.current.gust_kph
-
-
+        const wind = data.current.gust_kph 
         updateWeather(city, temperature, forecast, date, humidity, rain, wind)
         updateIcon(forecast)
     } catch (err) {
